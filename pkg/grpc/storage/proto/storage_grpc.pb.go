@@ -23,7 +23,7 @@ const (
 	StorageService_UpdateFile_FullMethodName    = "/storage.StorageService/UpdateFile"
 	StorageService_DownloadFile_FullMethodName  = "/storage.StorageService/DownloadFile"
 	StorageService_DeleteFile_FullMethodName    = "/storage.StorageService/DeleteFile"
-	StorageService_GetList_FullMethodName       = "/storage.StorageService/getList"
+	StorageService_GetList_FullMethodName       = "/storage.StorageService/GetList"
 )
 
 // StorageServiceClient is the client API for StorageService service.
@@ -238,7 +238,7 @@ var StorageService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _StorageService_DeleteFile_Handler,
 		},
 		{
-			MethodName: "getList",
+			MethodName: "GetList",
 			Handler:    _StorageService_GetList_Handler,
 		},
 	},
