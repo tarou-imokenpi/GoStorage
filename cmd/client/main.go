@@ -35,18 +35,18 @@ func NewUploadFile(data []byte) error {
 		return err
 	}
 
+	size := len(data)
+
 	// リクエストを生成
 	req := &storage.NewUploadFileRequest{
 		Meta: &storage.FileMeta{
 			Id:       "",
 			Filename: "",
 			Path:     "",
-			Size:     uint64(len(data)),
+			Size:     uint64(size),
 		},
 		Data: data,
 	}
-
-	size := len(data)
 
 	sendCount := size / (1024 * 1024)
 	if size%(1024*1024) == 0 {
