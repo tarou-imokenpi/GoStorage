@@ -13,6 +13,7 @@ var client storage.StorageServiceClient
 var MB = 1024 * 1024
 
 func main() {
+	log.Println("client start")
 	address := "localhost:8080"
 
 	// セキュリティを無効にして接続
@@ -25,6 +26,13 @@ func main() {
 	defer conn.Close()
 
 	client := storage.NewStorageServiceClient(conn)
+
+	data := []byte("Hello, World!")
+	err = NewUploadFile(data)
+	if err != nil {
+		log.Fatal("upload file error: ", err)
+		return
+	}
 
 }
 
