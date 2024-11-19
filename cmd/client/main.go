@@ -22,7 +22,11 @@ func main() {
 		log.Fatal("connection error: ", err)
 		return
 	}
-	defer conn.Close()
+	defer func() {
+		if err := conn.Close(); err != nil {
+			log.Fatal("connection close error: ", err)
+		}
+	}()
 
 	client = storage.NewStorageServiceClient(conn)
 
