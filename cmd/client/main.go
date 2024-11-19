@@ -1,7 +1,7 @@
 package main
 
 import (
-	storage "CloudStorage/pkg/grpc/storage/proto"
+	storage "GoStorage/pkg/grpc/storage/proto"
 	"context"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
