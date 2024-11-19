@@ -1,4 +1,4 @@
-module CloudStorage
+module GoStorage
 
 go 1.22.7
 

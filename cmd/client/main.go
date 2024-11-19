@@ -1,7 +1,7 @@
 package main
 
 import (
-	storage "CloudStorage/pkg/grpc/storage/proto"
+	storage "GoStorage/pkg/grpc/storage/proto"
 	"context"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
@@ -22,7 +22,11 @@ func main() {
 		log.Fatal("connection error: ", err)
 		return
 	}
-	defer conn.Close()
+	defer func() {
+		if err := conn.Close(); err != nil {
+			log.Fatal("connection close error: ", err)
+		}
+	}()
 
 	client = storage.NewStorageServiceClient(conn)
 
