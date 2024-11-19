@@ -31,6 +31,7 @@ func (S *StorageServiceServer) NewUploadFile(stream storage.StorageService_NewUp
 
 			fmt.Println("data: ", len(data))
 			fmt.Println("all received")
+			fmt.Println("data: ", string(data))
 
 			return stream.SendAndClose(&storage.NewUploadFileResponse{
 				Success: true,
@@ -41,7 +42,9 @@ func (S *StorageServiceServer) NewUploadFile(stream storage.StorageService_NewUp
 		}
 
 		data = append(data, req.GetData()...)
+
 	}
+
 }
 
 func main() {
