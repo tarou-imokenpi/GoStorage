@@ -40,7 +40,7 @@ func (S *StorageServiceServer) NewUploadFile(stream storage.StorageService_NewUp
 		if err != nil {
 			return err
 		}
-
+		fmt.Println("Received data len: ", len(req.GetData()))
 		data = append(data, req.GetData()...)
 
 	}
